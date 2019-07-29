@@ -12,4 +12,5 @@ urlpatterns = [
 router.register('user', views.UserViewSet)
 router.register('verity', views.VerityViewSet)
 router.register('code', views.SmsCodeViewset, base_name="code")
+router.register('usersRegister', views.UserRegisterViewset, base_name="users")
 urlpatterns += router.urls

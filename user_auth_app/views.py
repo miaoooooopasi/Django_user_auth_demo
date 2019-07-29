@@ -12,7 +12,7 @@ from rest_framework.viewsets import ModelViewSet
 from Django_user_auth_demo.settings import APIKEY
 from .models import Verity, User
 from user_auth_app.permisons import IsOwnerOrReadOnly
-from user_auth_app.serializers import VeritySerializers, SmsSerializer, UserSerializers
+from user_auth_app.serializers import VeritySerializers, SmsSerializer, UserSerializers, UserRegisterSerializer
 from user_auth_app.utils.tengxun import TengXun
 
 
@@ -64,5 +64,13 @@ class SmsCodeViewset(CreateModelMixin, viewsets.GenericViewSet):
             code_record = Verity(code=code, mobile=mobile)
             code_record.save()
             return Response({
-                "mobile": mobile
+                "mobile": mobile,
+                'code': code
             }, status=status.HTTP_201_CREATED)
+
+
+class UserRegisterViewset(CreateModelMixin, viewsets.GenericViewSet):
+    """
+    用户
+    """
+    serializer_class = UserRegisterSerializer

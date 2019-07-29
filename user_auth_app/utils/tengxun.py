@@ -39,6 +39,8 @@ class TengXun(object):
 
 
 # 脚本自测
+'''
 if __name__ == "__main__":
     teng_xun = TengXun("eb61539f093f6126d2079c3e56b15376")
     teng_xun.send_sms("2018", "15228390982")
+'''
